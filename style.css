@@ -1,4 +1,170 @@
-#page{
-	width: 70%;
-	background-color: #766488;
+body{
+	margin: 0;
+	background: url("img/bg.png");
+	/*background-size: 100vw auto;*/
+	font-size: 87.5%;
+	font-family: verdana;
+	color: #fff;
 }
+
+a{
+	text-decoration: none;
+	color: #fff;
+}
+
+#page{
+	overflow: hidden;
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+	width: 70%;
+	height: 100vh;
+	margin: 0 auto;
+	background: rgba(118,100,136,0.9);
+}
+
+#header{
+	box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+	text-align: center;
+	background-color: #634D78;
+	line-height: 64px;
+	font-size: 16pt;
+	position: fixed;
+	height: 64px;
+	width: 70%;
+}
+
+#header a{
+	padding: 0 5px;
+	margin: 0 auto;
+	border-right: 1px solid rgba(255,255,255,0.3);
+	border-radius: 1px;
+	outline-width: 0px;
+}
+
+#header a:hover{
+	color: #C6A8E4;
+}
+
+.icon{
+	margin: 0 5px;
+	height: 16px;
+	width: 16px;
+}
+
+.fa{
+	display: inline;
+	font-size: inherit;
+	text-rendering: auto;
+}
+
+.body h1{
+	font-size: 50px;
+}
+
+.left{
+	width: 39.95%;
+	height: 100%;
+	float: left;
+	font-weight: 300;
+}
+
+#content{
+	text-indent: 1.3em;
+	margin: 10% 10%;
+	text-align: justify;
+	font-size: 16pt;
+}
+
+#head{
+	margin: 40% 10% 20% 10%;
+	font-size: 48pt;
+	text-align: center;
+}
+
+#last{
+	font-size: 12pt;
+	text-align: center;
+}
+
+.divider{
+	overflow: hidden;
+	background-color: rgba(255,255,255,0.3);
+	height: 85%;
+	margin-top: 8%;
+	width: 1px;
+	float: left;
+}
+
+.right{
+	width: 59.95%;
+	height: 100%;
+	float: left;
+	font-weight: 300;
+}
+
+.box_skill{
+	display: inline-flex;
+	background-color: rgba(198,168,228,0.3);
+	margin: 3% 10%;
+	overflow: hidden;
+	border-radius: 10px;
+	width: 80%;
+}
+
+.right p{
+	margin: 30% 10% 10% 10%;
+	font-size: 18pt;
+	text-align: center;
+}
+
+#box_p{
+	margin: 0;
+	font-size: 22pt;
+	text-align: left;
+}
+
+.right ul{
+	font-size: 16pt;
+	text-align: right;
+	list-style-position: inside;
+	direction: rtl;
+}
+
+.left_skill{
+	margin: auto 5%;
+	float: left;
+	width: 30%;
+}
+
+.right_skill{
+	margin: auto;
+	float: left;
+	width: 70%;
+}
+
+/*Contact page*/
+
+#contact{
+	margin: 10% 0 2% 0;
+	font-size: 22pt;
+	text-align: center;
+}
+
+#status{
+	margin: 0 0 5% 0;
+	font-size: 14pt;
+	text-align: center;
+}
+
+.fa-5x{
+	margin: 5% 20%;
+}
+
+.media{
+	text-align: center;
+}
+
+.media_icon{
+	margin: 2%;
+}
+
+/*Projects page*/
