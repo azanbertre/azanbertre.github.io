@@ -1,0 +1,67 @@
+body{
+	margin: auto;
+	font-family: arial;
+}
+
+.main{
+	width: 60%;
+	margin: auto;
+}
+
+.img{
+	width: 45%;
+	float: left;
+}
+
+.img img{
+	width: 110%;
+	float: left;
+}
+
+.text{
+	width: 50%;
+	float: right;
+}
+
+#text{
+	margin: 5% 5%;
+	color: #333;
+}
+
+#low{
+	font-size: 40px;
+	margin: 0 0 10px 0;
+}
+
+#medium{
+	font-size: 70px;
+	margin: 0;
+}
+
+#high{
+	font-size: 190px;
+	margin-top: 25px;
+	margin-bottom: 0;
+}
+
+.footer{
+	background-color: #333;
+	height: 500px;
+	clear: both;
+}
+
+.main_footer{
+	position: relative;
+	top: 90%;
+	background-color: #151515;
+	height: 50px;
+	clear: both;
+}
+
+.main_footer p{
+	color: #fff;
+	position: relative;
+	top: 30%;
+	left: 80%;
+	width: 20%;
+}
