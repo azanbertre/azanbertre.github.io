@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Pedro Borges - Portfolio</title>
+
+    <style>
+        pre, code {
+            font-family: monospace, monospace;
+        }
+        pre {
+            overflow: auto;
+        }
+        pre > code {
+            display: block;
+            padding: 1rem;
+            word-wrap: normal;
+        }
+    </style>
+
+  </head>
+  <body>
+    <div id="canvas" style="float: left; width: 50%;"></div>
+    <div id="code" style="float: right; font-size: 2em; width: 50%;">
+        <pre>
+            <code>
+            render() {
+                stroke(0, 175);
+                for (let i = 0; i < this.todo.length; i++) {
+                    let c = this.todo[i];
+                    if (c == 'F') {
+                        line(0, 0, this.len, 0);
+                        translate(this.len, 0);
+                    } else if (c == 'G') {
+                        translate(this.len, 0);
+                    } else if (c == '+') {
+                        rotate(this.theta);
+                    } else if (c == '-') {
+                        rotate(-this.theta);
+                    } else if (c == '[') {
+                        push();
+                    } else if (c == ']') {
+                        pop();
+                    }
+                }
+            }
+
+            new Rule('F', "FF+[+F-F-F]-[-F+F+F]")
+            </code>
+        </pre>
+    </div>
+    <script src="js/p5.min.js"></script>
+    <script src="js/sketch1.js"></script>
+  </body>
+</html>
