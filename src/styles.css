@@ -1,0 +1,254 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("content/font/Roboto-Regular.ttf");
+}
+@keyframes slide_up {
+  0% {
+    transform: translate(0, 100%);
+  }
+  100% {
+    transform: translate(0, 0%);
+  }
+}
+@keyframes slide_left {
+  0% {
+    transform: translate(0%, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+    display: none;
+  }
+}
+@keyframes background_change {
+  0% {
+    background-color: #21BDD5;
+  }
+  25% {
+    background-color: #b23ed8;
+  }
+  50% {
+    background-color: #eeac31;
+  }
+  75% {
+    background-color: #50c647;
+  }
+  100% {
+    background-color: #21BDD5;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes open {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+#root {
+  height: 100%;
+}
+
+html {
+  height: 100%;
+  background-color: #323238;
+  overflow: hidden;
+  color: #fff;
+}
+html body {
+  height: 100%;
+  font-family: "Roboto";
+  margin: 0;
+}
+html body main {
+  height: 100%;
+  position: relative;
+  display: flex;
+}
+html body main #content-left {
+  position: relative;
+  flex-grow: 1;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+html body main #content-left .content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+html body main #content-left .open {
+  z-index: 1 !important;
+  animation-name: open;
+  animation-duration: 230ms;
+  animation-timing-function: cubic-bezier(0.51, 0.1, 0.24, 1);
+  animation-fill-mode: forwards;
+}
+html body main #content-left .preload {
+  animation-duration: 0s !important;
+  transform: scale(1) !important;
+}
+html body main #content-left #presentation div {
+  animation-name: background_change;
+  animation-iteration-count: infinite;
+  animation-duration: 20s;
+  animation-timing-function: ease-in-out;
+  transition: all 1s;
+  height: 100%;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+html body main #content-left #presentation div section {
+  margin: auto;
+  width: 70%;
+}
+html body main #content-left #presentation div section h2 {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-delay: 0;
+  animation-timing-function: cubic-bezier(0.51, 0.1, 0.24, 1);
+  animation-fill-mode: backwards;
+  font-size: 5em;
+  margin: 0;
+}
+html body main #content-left #presentation div section h2 span {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-delay: 1.5s;
+  animation-timing-function: cubic-bezier(0.51, 0.1, 0.24, 1);
+  animation-fill-mode: backwards;
+  font-size: 0.5em;
+}
+html body main #content-left #presentation div section h1 {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-delay: 3s;
+  animation-timing-function: cubic-bezier(0.51, 0.1, 0.24, 1);
+  animation-fill-mode: backwards;
+  font-size: 10em;
+  margin: 0;
+}
+html body main #content-left #presentation div section p {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-delay: 5s;
+  animation-timing-function: cubic-bezier(0.51, 0.1, 0.24, 1);
+  animation-fill-mode: backwards;
+  font-size: 1.2em;
+}
+html body main #content-left #projects {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAATElEQVQoU2NUU9P+z4AEeHh4Gb58+YwsBGYzIiuEKcKmGK4QXRKdD1aIyzpkcUYjI4v/2NwEcyRMMYobMXwAFQApJkohhq9xmQgSBwAJOSbea7EG3AAAAABJRU5ErkJggg==");
+}
+html body main #content-left #skills {
+  background-color: white;
+}
+html body main #content-left #contact {
+  background-color: firebrick;
+}
+html body main nav {
+  right: 0;
+  width: 10%;
+  min-width: 150px;
+  max-width: 200px;
+  position: relative;
+  text-align: center;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAKElEQVQYV2NUVNT4zwAFgoICDIwwARDn/fsPCAGYKkYjI4v/IBkYAAB5eAvb4L94dQAAAABJRU5ErkJggg==");
+  transition: all 1s;
+}
+html body main nav img {
+  width: 100px;
+}
+html body main nav #menu {
+  position: relative;
+  /*div:before {
+      @include animation_background;
+      content: '';
+      position: absolute;
+      bottom: 0;
+      margin: auto;
+      left: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      transition: all 0.5s ease;
+  }
+
+  div:hover:before {
+      width: 70%;
+      height: 4px;
+  }*/
+}
+html body main nav #menu div {
+  position: relative;
+  display: flex;
+  height: 60px;
+  color: #fff;
+  font-size: 1.3em;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+}
+html body main nav #menu .menu-active {
+  animation-name: background_change;
+  animation-iteration-count: infinite;
+  animation-duration: 20s;
+  animation-timing-function: ease-in-out;
+  position: absolute;
+  height: 60px;
+  width: 100%;
+  padding: 0 0 0 7px;
+  right: 0;
+  transition: all 230ms;
+  box-shadow: 0px 0px 10px black;
+  z-index: 1;
+}
+html body main nav #social {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  margin-bottom: 20px;
+}
+html body main nav #social a {
+  display: block;
+  color: #fff;
+}
+html body main nav #social a .fa-twitter-square:hover {
+  color: #1DA1F2;
+}
+html body main nav #social a .fa-steam-square:hover {
+  color: #171A21;
+}
+html body main nav #social a .fa-twitch:hover {
+  color: #4B367C;
+}
+html body main nav #social a .fa-github-square:hover {
+  color: #24292E;
+}
+html body main nav #social a * {
+  margin: 0.2em auto;
+  font-size: 3em;
+}
+html body main #content-right {
+  transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: scale(0);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAATElEQVQoU2NUU9P+z4AEeHh4Gb58+YwsBGYzIiuEKcKmGK4QXRKdD1aIyzpkcUYjI4v/2NwEcyRMMYobMXwAFQApJkohhq9xmQgSBwAJOSbea7EG3AAAAABJRU5ErkJggg==");
+}
+
+/*# sourceMappingURL=styles.css.map */

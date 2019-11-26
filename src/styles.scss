@@ -1,0 +1,281 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url("content/font/Roboto-Regular.ttf");
+}
+$font: 'Roboto';
+$font-color: #fff;
+$primary-color: #26262B;
+$secondary-color: #212128;
+$animation-bezier: cubic-bezier(.51,.1,.24,1);
+@keyframes slide_up {
+    0% {transform: translate(0, 100%);}
+    100% {transform: translate(0, 0%);}
+}
+@keyframes slide_left {
+    0% {transform: translate(0%, 0);}
+    100% {transform: translate(-100%, 0);display: none;}
+}
+@keyframes background_change {
+    0% {background-color: #21BDD5;}
+    25% {background-color: #b23ed8;}
+    50% {background-color: #eeac31;}
+    75% {background-color: #50c647;}
+    100% {background-color: #21BDD5;}
+}
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@mixin fadeIn($time, $delay) {
+    animation-name: fadeIn;
+    animation-duration: $time;
+    animation-delay: $delay;
+    animation-timing-function: $animation-bezier;
+    animation-fill-mode: backwards;
+}
+@mixin animation_background {
+    animation-name: background_change;
+    animation-iteration-count: infinite;
+    animation-duration: 20s;
+    animation-timing-function: ease-in-out;
+}
+@mixin animation_slide($time) {
+    animation-name: slide_up;
+    animation-duration: $time;
+    animation-timing-function: $animation-bezier;
+}
+@mixin slide_left($time, $content:null) {
+    animation-name: slide_left $content;
+    animation-duration: $time $content;
+    animation-timing-function: $animation-bezier $content;
+    animation-fill-mode: forwards $content;
+    animation-iteration-count: 1 $content;
+}
+
+@keyframes open {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+}
+@mixin open($time) {
+    animation-name: open;
+    animation-duration: $time;
+    animation-timing-function: $animation-bezier;
+    animation-fill-mode: forwards;
+}
+
+#root {
+    height: 100%;
+}
+
+html {
+    height: 100%;
+    background-color: #323238;
+    overflow: hidden;
+    color: $font-color;
+
+    body {
+        height: 100%;
+        font-family: $font;
+        margin: 0;
+
+        main {
+            height: 100%;
+            position: relative;
+            display: flex;
+
+            #content-left {
+                position: relative;
+                flex-grow: 1;
+                right: 0;
+                display: flex;
+                align-items: center;
+
+                .content {
+                    //transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    display: flex;
+                    align-items: center;
+                    //background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAATElEQVQoU2NUU9P+z4AEeHh4Gb58+YwsBGYzIiuEKcKmGK4QXRKdD1aIyzpkcUYjI4v/2NwEcyRMMYobMXwAFQApJkohhq9xmQgSBwAJOSbea7EG3AAAAABJRU5ErkJggg==");
+
+                }
+                .open {
+                    z-index: 1 !important;
+                    @include open(230ms);
+                }
+                .preload {
+                    animation-duration: 0s !important;
+                    transform: scale(1) !important;
+                }
+
+                #presentation {
+
+                    div {
+                        @include animation_background;
+                        transition: all 1s;
+                        height: 100%;
+                        display: flex;
+                        flex-grow: 1;
+                        align-items: center;
+
+                        section {
+                            margin: auto;
+                            width: 70%;
+
+                            h2 {
+                                @include fadeIn(1s, 0);
+                                font-size: 5em;
+                                margin: 0;
+
+                                span {
+                                    @include fadeIn(1s, 1.5s);
+                                    font-size: 0.5em;
+                                }
+                            }
+
+                            h1 {
+                                @include fadeIn(1s, 3s);
+                                font-size: 10em;
+                                margin: 0;
+                            }
+
+                            p {
+                                @include fadeIn(1s, 5s);
+                                font-size: 1.2em;
+                            }
+                        }
+                    }
+
+
+                }
+
+                #projects, #skills, #contact {
+
+                }
+
+                #projects {
+                    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAATElEQVQoU2NUU9P+z4AEeHh4Gb58+YwsBGYzIiuEKcKmGK4QXRKdD1aIyzpkcUYjI4v/2NwEcyRMMYobMXwAFQApJkohhq9xmQgSBwAJOSbea7EG3AAAAABJRU5ErkJggg==");
+                }
+                #skills {
+                    background-color: white;
+                }
+                #contact {
+                    background-color: firebrick;
+                }
+
+            }
+
+            nav {
+                //@include animation_slide(0.7s);
+                right: 0;
+                width: 10%;
+                min-width: 150px;
+                max-width: 200px;
+                position: relative;
+                text-align: center;
+                background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAKElEQVQYV2NUVNT4zwAFgoICDIwwARDn/fsPCAGYKkYjI4v/IBkYAAB5eAvb4L94dQAAAABJRU5ErkJggg==");
+                transition: all 1s;
+
+                img {
+                    width: 100px;
+                }
+
+                #menu {
+                    position: relative;
+
+                    div {
+                        position: relative;
+                        display: flex;
+                        height: 60px;
+                        color: $font-color;
+                        font-size: 1.3em;
+                        cursor: pointer;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        z-index: 2;
+                    }
+                    /*div:before {
+                        @include animation_background;
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        margin: auto;
+                        left: 0;
+                        right: 0;
+                        width: 0;
+                        height: 0;
+                        transition: all 0.5s ease;
+                    }
+
+                    div:hover:before {
+                        width: 70%;
+                        height: 4px;
+                    }*/
+                    .menu-active {
+                        @include animation_background;
+                        position: absolute;
+                        height: 60px;
+                        width: 100%;
+                        padding: 0 0 0 7px;
+                        right: 0;
+                        transition: all 230ms;
+                        box-shadow: 0px 0px 10px black;
+                        z-index: 1;
+                    }
+                }
+
+                #social {
+                    position: absolute;
+                    width: 100%;
+                    bottom: 0;
+                    margin-bottom: 20px;
+
+                    a {
+                        display: block;
+                        color: $font-color;
+
+                        .fa-twitter-square:hover {
+                            color: #1DA1F2;
+                        }
+
+                        .fa-steam-square:hover {
+                            color: #171A21;
+                        }
+
+                        .fa-twitch:hover {
+                            color: #4B367C;
+                        }
+
+                        .fa-github-square:hover {
+                            color: #24292E;
+                        }
+                    }
+
+                    a * {
+                        margin: 0.2em auto;
+                        font-size: 3em;
+                    }
+                }
+            }
+
+            #content-right {
+                //@include animation_slide(0.7s);
+                transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+
+                transform: scale(0);
+                width: 100%;
+                height: 100%;
+                position: absolute;
+
+                display: flex;
+
+                align-items: center;
+
+                background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAATElEQVQoU2NUU9P+z4AEeHh4Gb58+YwsBGYzIiuEKcKmGK4QXRKdD1aIyzpkcUYjI4v/2NwEcyRMMYobMXwAFQApJkohhq9xmQgSBwAJOSbea7EG3AAAAABJRU5ErkJggg==");
+            }
+        }
+    }
+}
